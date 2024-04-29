@@ -4,25 +4,12 @@ import VotingContext, { VotingProvider } from "../../context/Voter";
 import NavBar from "../../components/NavBar";
 
 const ShowCandidates = () => {
-  const {
-    candidateLength,
-    voters,
-    voterLength,
-    candidates,
-    getCandidates,
-    giveVote,
-  } = useContext(VotingContext);
-  const handleVote = async (candidateAddress, candidateId) => {
-    try {
-      giveVote(candidateAddress, candidateId);
-      let voter = voters.find((voter) => voter.voter_address === account);
-      if (voter && voter.voter_voted) {
-        alert("Voted Successfully");
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  const { candidateLength, voterLength, candidates, getCandidates } =
+    useContext(VotingContext);
+
+  const sortedCandidates = [...candidates].sort(
+    (a, b) => b.voteCount - a.voteCount
+  );
 
   return (
     <div className=" m-5 bg-[#5BBCFF] h-dvh ">
@@ -41,10 +28,10 @@ const ShowCandidates = () => {
           </div>
         </div>
       </div>
-      <div className="flex gap-4 justify-center">
-        <div className="text-4xl font-extrabold"> Candidates </div>
+      <div className="flex flex-col justify-center items-center  md:flex-row gap-4">
+        <div className="text-2xl font-bold"> Candidates </div>
         <button
-          className="bg-blue-900 hover:bg-blue-950 text-white font-bold py-2 px-4 rounded"
+          className="bg-blue-900 hover:bg-blue-950 text-white font-bold py-2 px-4 rounded w-44"
           onClick={getCandidates}
         >
           Get Candidates
@@ -52,11 +39,13 @@ const ShowCandidates = () => {
       </div>
 
       <div className="flex justify-center items-center bg-[#5BBCFF]  flex-wrap ">
-        {candidates.map((candidate, index) => {
+        {sortedCandidates.map((candidate, index) => {
           return (
             <div
-              key={index}
-              className="flex flex-col bg-slate-800 text-white items-center m-5  p-5 gap-2"
+              key={candidate.id}
+              className={`flex flex-col ${
+                index === 0 ? "bg-green-950" : "bg-slate-800"
+              } text-white items-center m-5  p-5 gap-2`}
             >
               <img
                 src={candidate.image}

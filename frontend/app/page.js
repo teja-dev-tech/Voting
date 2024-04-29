@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useContext } from "react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import VotingContext, { VotingProvider } from "../context/Voter";
 
@@ -17,8 +18,8 @@ const CheckWallet = () => {
   }, 1000);
 
   return (
-    <div className="bg-[#5BBCFF] m-5 p-5 h-dvh">
-      <div className="flex justify-end items-start m-5 pt-5">
+    <div className="bg-[#5BBCFF] m-5 p-5 h-auto ">
+      <div className="flex justify-center md:justify-end items-start m-2  ">
         <button
           onClick={() => {
             connectWallet();
@@ -28,11 +29,23 @@ const CheckWallet = () => {
           Connect Wallet
         </button>
       </div>
-      <div className="flex justify-center items-center flex-col ">
-        <h1 className="text-4xl font-extrabold mb-3">
+      <div className="flex justify-center items-center flex-col py-2 ">
+        <div className="text-4xl font-extrabold text-center ">
           Welcome to Decentralized Voting System
-        </h1>
-        <h1 className="text-2xl font-medium">{message}</h1>
+        </div>
+        <div className="text-2xl font-bold  text-center">
+          Your Vote, Your Voice, On the Blockchain.
+        </div>
+        <div className="text-2xl font-bold text-center">{message}</div>
+        <div className="w-auto h-auto ">
+          <Image
+            src="/images/votingDapp.jpg"
+            alt="cover photo"
+            width={500}
+            height={500}
+            priority
+          />
+        </div>
       </div>
     </div>
   );

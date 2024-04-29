@@ -64,17 +64,20 @@ const AddCandidate = () => {
   };
   const { getRootProps, getInputProps } = useDropzone({ onDrop });
   return (
-    <div className="m-5 bg-[#5BBCFF] h-dvh ">
+    <div className="m-5 bg-[#5BBCFF] h-auto md:h-dvh ">
       <div className="m-5 flex flex-col pt-5">
         <div className="flex justify-end items-start">
           <NavBar />
         </div>
         <div className="flex justify-center">
-          <div className="text-4xl font-extrabold"> Add Candidate </div>
+          <div className="text-4xl font-extrabold mt-2 md:mt-0 ">
+            {" "}
+            Add Candidate{" "}
+          </div>
         </div>
-        <div className="grid grid-cols-12">
+        <div className="grid grid-cols-1 md:grid-cols-12">
           <div className="col-span-4">
-            <div className="flex flex-col justify-center bg-gray-800 text-blue-200 gap-2 w-3/4 p-5">
+            <div className="flex flex-col justify-center bg-gray-800 text-blue-200 gap-2 md:w-3/4 p-5">
               <div className="text-2xl font-bold">
                 Create Candidate for Voting
               </div>
@@ -97,7 +100,7 @@ const AddCandidate = () => {
             </div>
           </div>
           <div className="col-span-8">
-            <form className="m-10 w-3/4 text-2xl" onSubmit={handleSubmit}>
+            <form className="m-10 md:w-3/4 text-2xl" onSubmit={handleSubmit}>
               <div className="flex flex-col ">
                 <label>Name</label>
                 <input
@@ -145,7 +148,7 @@ const AddCandidate = () => {
                 <label>Image</label>
                 <div {...getRootProps()}>
                   <input {...getInputProps()} />
-                  <p className="text-xl">
+                  <p className="text-xl my-2 border  bg-[#FFFFFF] text-black p-2 md:p-16">
                     Drag 'n' drop some files here, or click to select files
                   </p>
                 </div>

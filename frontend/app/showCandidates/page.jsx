@@ -53,23 +53,23 @@ const ShowCandidates = () => {
         </div>
       )}
 
-      <div>
-        <h1 className="text-4xl font-extrabold text-center py-2">
-          Welcome to Decentralized Voting System
-        </h1>
-      </div>
-      <div className="flex gap-4 justify-center">
-        <div className="text-4xl font-extrabold"> Candidates </div>
-        <button
-          className="bg-blue-900 hover:bg-blue-950 text-white font-bold py-2 px-4 rounded"
-          onClick={getCandidates}
-        >
-          Get Candidates
-        </button>
+      <div className="flex flex-col gap-2">
+        <div className="text-4xl font-extrabold text-center mt-2 md:mt-0 py-2">
+          Revolutionizing Voting: Secure, Transparent, Global.
+        </div>
+        <div className="flex flex-col justify-center items-center  md:flex-row gap-4">
+          <div className="text-2xl font-bold"> Candidates </div>
+          <button
+            className="bg-blue-900 hover:bg-blue-950 text-white font-bold py-2 px-4 rounded w-44"
+            onClick={getCandidates}
+          >
+            Get Candidates
+          </button>
+        </div>
       </div>
 
       {candidateLength == 0 ? (
-        <div className="text-3xl font-bold text-center py-4">
+        <div className="text-2xl font-bold text-center py-4">
           No Candidates Found
         </div>
       ) : (
@@ -90,7 +90,7 @@ const ShowCandidates = () => {
                 <h1 className="text-2xl">Party: {candidate.partyName}</h1>
 
                 <button
-                  className="bg-blue-900 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded"
+                  className="bg-blue-900 hover:bg-blue-950 text-white font-bold py-2 px-4 rounded"
                   onClick={() =>
                     handleVote(candidate._address, candidate.candidateId)
                   }

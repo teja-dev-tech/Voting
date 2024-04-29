@@ -1,5 +1,5 @@
 import voting from "./Create.json";
-export const VotingAddress = "0xa61B45db4A39Ab7A0e2aF75c617CFdE3c0a34101";
+export const VotingAddress = "0x39ab23799e42d4c940c14e23DEc1Fbc14a1D12D3";
 export const VotingAddressABI = [
   {
     inputs: [],

@@ -2,9 +2,7 @@ const hre = require("hardhat");
 
 async function main() {
   const create = await hre.ethers.deployContract("Create");
-  const contract_owner = await hre.ethers.getSigner(
-    "0x39A948875ff90EfE7537cc1b114102AB34f7762F"
-  );
+  const contract_owner = await hre.ethers.getSigner("your signer");
   await create.waitForDeployment();
 
   console.log(create);
